@@ -1,7 +1,7 @@
 const getSetting = () => new Promise(res => chrome.storage.local.get('disabled', (s) => res(s.disabled)));
 
 const setIcon = (disabled) => chrome.action.setIcon({
-  path: disabled ? "off.png" : "on.png"
+  path: disabled ? "images/off.png" : "images/on.png"
 });
 
 getSetting().then(setIcon);
