@@ -1,0 +1,39 @@
+{
+    "name": "Event Concealer",
+    "description": "Show events on google calendar as simple blocks with no event title.",
+    "version": "1.0",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://calendar.google.com/calendar/*"
+            ],
+            "js": [
+                "events.user.js"
+            ],
+            "run_at": "document_end",
+            "all_frames": true
+        }
+    ],
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "https://calendar.google.com/*"
+    ],
+    "action": {
+        "default_icon": "hello_extensions.png"
+    },
+    "commands": {
+        "_execute_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+F",
+                "mac": "MacCtrl+Shift+F"
+            },
+            "description": "Conceals events"
+        }
+    }
+}
